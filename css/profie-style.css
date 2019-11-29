@@ -1,0 +1,43 @@
+/************** Profile Page Styles ****************************/
+
+.container{
+    padding-top: 30px;
+    padding-left: -500px;
+    padding-bottom: 30px;
+}
+.container .img{
+    text-align:center;
+}
+.container .details{
+    border-left:3px solid #ded4da;
+    margin-left: -25px;
+    
+}
+.container .details p{
+    font-size:15px;
+    font-weight:bold;
+}
+
+/************** Mobile View ****************************/
+
+@media only screen and (max-width: 600px) {
+    
+    .container{
+        padding-top: 30px;
+        padding-left: 55px;
+        align-content: center;
+    }
+    .container .details{
+        padding-top: 30px;
+    }
+
+    .container .img{
+        margin-left: -20px;
+    }
+
+    .container .last{
+        margin-left: -20px;
+    }
+  }
+
+  /******************************************/
