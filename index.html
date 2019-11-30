@@ -2,6 +2,21 @@
 <html lang="en">
 
 <head>
+  <style>
+    @media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+    </style>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -13,6 +28,9 @@
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="./css/mobile-style.css">
+  <link rel="stylesheet" href="./css/slider.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  
 </head>
 
 <body>
@@ -79,85 +97,88 @@
 
     <!------------------ Image Carousel Section ------------------------------->
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css">
+ <div class="swiper-container">
+                <div class="swiper-wrapper">
+              <!--     <div class="swiper-slide">
+                    <div class="slide-inner" style="background-image:url(http://cs412624.vk.me/v412624691/4117/RWBNZL6CLtU.jpg)"></div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="slide-inner" style="background-image:url(http://cs412624.vk.me/v412624691/41ad/atM6w55Z9Xg.jpg)"></div>
+                  </div> -->
+                  <div class="swiper-slide">
+                    <div class="slide-inner">
+                      <img src="https://pp.userapi.com/c836139/v836139003/63ce1/QThPx7qPzvU.jpg">
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="slide-inner" style="background-image:url(https://pp.userapi.com/c412624/v412624691/4136/_da_uAA6ha8.jpg)"></div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="slide-inner">
+                       <img src="https://pp.userapi.com/c637331/v637331691/48f5f/spHnV42iYVw.jpg">
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="slide-inner">
+                      <img src="https://pp.userapi.com/c837139/v837139407/67f52/fFqjq4U2mEk.jpg">
+                    </div>
+                  </div>
+              <!--     <div class="swiper-slide">
+                    <div class="slide-inner" style="background-image:url(http://cs412624.vk.me/v412624691/415d/X7YuVilSl4k.jpg)"></div>
+                  </div> -->
+                </div>
+                <div class="swiper-button-next swiper-button-white"></div>
+                <div class="swiper-button-prev swiper-button-white"></div>
+              </div>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js"></script>
+           <script>
+                var interleaveOffset = 0.5;
 
+                var swiperOptions = {
+                  loop: true,
+                  speed: 1000,
+                  grabCursor: true,
+                  autoplay: true,
+                  watchSlidesProgress: true,
+                  mousewheelControl: true,
+                  keyboardControl: true,
+                  navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev"
+                  },
+                  on: {
+                    progress: function() {
+                      var swiper = this;
+                      for (var i = 0; i < swiper.slides.length; i++) {
+                        var slideProgress = swiper.slides[i].progress;
+                        var innerOffset = swiper.width * interleaveOffset;
+                        var innerTranslate = slideProgress * innerOffset;
+                        swiper.slides[i].querySelector(".slide-inner").style.transform =
+                          "translate3d(" + innerTranslate + "px, 0, 0)";
+                      }      
+                    },
+                    touchStart: function() {
+                      var swiper = this;
+                      for (var i = 0; i < swiper.slides.length; i++) {
+                        swiper.slides[i].style.transition = "";
+                      }
+                    },
+                    setTransition: function(speed) {
+                      var swiper = this;
+                      for (var i = 0; i < swiper.slides.length; i++) {
+                        swiper.slides[i].style.transition = speed + "ms";
+                        swiper.slides[i].querySelector(".slide-inner").style.transition =
+                          speed + "ms";
+                      }
+                    }
+                  }
+                };
+                
+                var swiper = new Swiper(".swiper-container", swiperOptions);
 
+           </script> 
 
-    <div id="header-carousel" class="carousel slide" data-ride="carousel">
-        <!-- <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol> -->
-
-        <div class="carousel-inner" role="listbox">
-
-          <div class="carousel-item active" style="background: url('https://i.ibb.co/YT4sT0M/b1.jpg'); background-size: cover;">
-            <div class="caption text-left" style="margin-left: -80px; margin-bottom: 210px;">
-                <h1 class="display-3 text-light" style=" font-family:var(--Patua);"> ModelHurd</h1>
-                <h5 class="display-3 text-light" style="font-size: 20px; font-family:Arial, Helvetica, sans-serif; ">
-                  <b>Here You Can Prove Your Talent</b></h5><br>
-                <p class="lead text-light" style="font-size: 17px;">Lorem ipsum dolor sit amet, consectetur adipisicing
-                  elit.<br> Voluptatem et unde
-                  consequuntur aperiam sint aliquam,<br> libero atque ipsam laudantium!</p><br>
-                <p><a href="#" class="btn btn-light btn-lg px-4 py-2" style="border-radius: 30px; color: orange;">Apply
-                    Now</a> <b>&nbsp;OR&nbsp;&nbsp;</b>
-                  <a href="#" class="btn btn-lg" style="border-radius: 30px; 
-                    border: 4px thick white; 
-                    color: white; 
-                    border-color: white;">Find the Talent</a></p>
-            </div>
-          </div>
-
-          <div class="carousel-item" style="background:url('https://i.ibb.co/JFV4Zf9/b3.jpg'); background-size: cover;">
-            <div class="caption text-right" style="margin-left: -80px; margin-bottom: 210px;" >
-                <h1 class="display-3 text-right" style=" font-family:var(--Patua);">Talent Discovered</h1>
-                <h5 class="display-3 text-light" style="font-size: 20px; font-family:Arial, Helvetica, sans-serif; ">
-                  <b>We Create Simple,Elegant, and Fun Experiences.</b></h5><br>
-                <p class="lead" style="font-size: 17px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
-                  nemo,<br>
-                  repudiandae voluptates atque dignissimos doloribus. <br>
-                  repudiandae voluptates atque dignissimos doloribus.</p><br>
-
-                <p><a href="#" class="btn btn-light btn-lg px-4 py-2"
-                    style="border-radius: 30px; color: lightseagreen;">Apply
-                    Now</a> <b>&nbsp;OR&nbsp;&nbsp;</b>
-                  <a href="#" class="btn btn-lg" style="border-radius: 30px; 
-                      border: 4px thick white; 
-                      color: white; 
-                      border-color: white;">Find the Talent</a></p>
-            </div>
-          </div>
-          
-          <div class="carousel-item" style="background-image: url('https://i.ibb.co/VB12M4g/b2.jpg'); background-size: cover;">
-            <div class="caption" style="margin-left: -200px; margin-bottom: 210px;">
-                <h1 class="display-3 text-light" style=" font-family:var(--Patua);"> Become a Member</h1>
-                <h5 class="display-3 text-light" style="font-size: 20px; font-family:Arial, Helvetica, sans-serif; ">
-                  <b>We get results through passion, teamwork, and balance</b></h5><br>
-                <p class="lead text-light" style="font-size: 17px;">Lorem ipsum dolor sit amet, consectetur
-                  adipisicing
-                  elit.<br> Voluptatem et unde
-                  consequuntur aperiam sint aliquam,<br> libero atque ipsam laudantium!</p><br>
-                <p><a href="#" class="btn btn-light btn-lg px-4 py-2" style="border-radius: 30px; color: red;">Apply
-                    Now</a> <b>&nbsp;OR&nbsp;&nbsp;</b>
-                  <a href="#" class="btn btn-lg" style="border-radius: 30px; 
-                  border: 4px thick white; 
-                  color: white; 
-                  border-color: white;">Find the Talent</a></p>
-            </div>
-          </div>
-
-        </div>
-        
-        <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-
-      </div>
 
 
   </header>
@@ -473,7 +494,7 @@
 
 
 </script>
-
+  <script src="./js/slider.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -482,6 +503,7 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
   <script src="./main.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </body>
 
 </html>
